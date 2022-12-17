@@ -27,3 +27,32 @@ def read_csv() -> list:
             temp["salary"] = float(row[5])
             employee.append(temp)
     return employee
+
+
+
+def controller():
+
+    position = -1
+
+    while position != 9:
+        position = ui()
+        data = read_db()
+        match position:
+            case 1:
+                find_worker(data)
+            case 2:
+                find_worker_by_jtitle(data)
+            case 3:
+                find_worker_by_salary(data)
+            case 4:
+                add_worker(data)
+            case 5:
+                delete_worker(data)
+            case 6:
+                update_worker_data(data)
+            case 7:
+                json_export(data)
+            case 8:
+                cmv_export(data)
+    else:
+        print("конец работы")
