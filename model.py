@@ -12,6 +12,11 @@ def init (f_k):
     global find_key
     find_key=f_k
 
+def init1 (min_s, max_s):
+    global min_salary
+    global max_salary
+    min_salary=min_s
+    max_salary=max_s
 
 def find_worker():
     data = open('Database.txt','r',encoding='UTF-8')
@@ -28,3 +33,11 @@ def find_worker_post():
         worker=dict(s.split("=") for s in s.split(","))
         DB.append(worker)
     return(list(filter(lambda item: item['должность'] == find_key, DB)))
+
+def find_worker_salary():
+    data = open('Database.txt','r',encoding='UTF-8')
+    DB =[]
+    for s in data.readlines():
+        worker=dict(s.split("=") for s in s.split(","))
+        DB.append(worker)
+    return(list(filter(lambda item: min_salary<=item['зарплата']<=max_salary, DB)))
