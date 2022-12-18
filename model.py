@@ -1,10 +1,11 @@
 data = open('Database.txt','r',encoding='UTF-8')
-DB ={}
+DB =[]
 for s in data.readlines():
-    DB.append(s) 
+    worker=dict(s.split("=") for s in s.split(","))
+    DB.append(worker) 
 data.close()
 print(DB)
 
-def init (a):
-    global flag
-    flag=a
+# def init (a):
+#     global flag
+#     flag=a
