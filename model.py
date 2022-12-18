@@ -12,6 +12,7 @@ def init (f_k):
     global find_key
     find_key=f_k
 
+
 def find_worker():
     data = open('Database.txt','r',encoding='UTF-8')
     DB =[]
@@ -20,3 +21,10 @@ def find_worker():
         DB.append(worker)
     return(list(filter(lambda item: item['ФИО'] == find_key, DB)))
 
+def find_worker_post():
+    data = open('Database.txt','r',encoding='UTF-8')
+    DB =[]
+    for s in data.readlines():
+        worker=dict(s.split("=") for s in s.split(","))
+        DB.append(worker)
+    return(list(filter(lambda item: item['должность'] == find_key, DB)))
