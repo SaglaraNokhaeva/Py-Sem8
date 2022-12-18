@@ -23,4 +23,7 @@ def number_find_worker():
 def number_find_post():
     return input("Введите должность сотрудников для поиска: ")
 
+def number_find_salary():
+    return [input("Введите нижний предел зарплаты: "), input("Введите верхний предел зарплаты: ")]
+
 
