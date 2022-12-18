@@ -9,19 +9,22 @@ def number_show_menu():
         result=model.find_worker()
         view.view_data(result)
     elif value_1==2:
+        value_2=view.number_find_post()
+        model.init(value_2)
+        result=model.find_worker_post()
+        view.view_data(result)
+    # elif value_1==3:
 
-    elif value_1==3:
+    # elif value_1==4:
 
-    elif value_1==4:
+    # elif value_1==5:
 
-    elif value_1==5:
+    # elif value_1==6:
 
-    elif value_1==6:
+    # elif value_1==7:
 
-    elif value_1==7:
+    # elif value_1==8:
 
-    elif value_1==8:
-
-    elif value_1==9:
+    # elif value_1==9:
 
     
