@@ -18,6 +18,5 @@ def find_worker():
     for s in data.readlines():
         worker=dict(s.split("=") for s in s.split(","))
         DB.append(worker)
-    print(list(filter(lambda item: item['ФИО'] == find_key, DB)))
+    return(list(filter(lambda item: item['ФИО'] == find_key, DB)))
 
-find_worker()
