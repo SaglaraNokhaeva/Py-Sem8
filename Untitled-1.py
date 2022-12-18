@@ -17,6 +17,9 @@ def show_menu() -> int:
 show_menu()
 
 
+import csv
+import json
+
 # def read_csv() -> list:
 #     employee = []
 #     with open(Path.cwd() / 'database.csv', 'r', encoding='utf-8') as fin:
