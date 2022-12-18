@@ -20,3 +20,7 @@ def number_find_worker():
     return input("Введите ФИО сотрудника для поиска: ")
 
 
+def number_find_post():
+    return input("Введите должность сотрудников для поиска: ")
+
+
