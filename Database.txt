@@ -1,6 +1,6 @@
-fio=Ivanov Ivan Ivanovich,post=юрист,salary=50000
+fio=Иванов Иван Иванович,post=юрист,salary=50000
 fio=Петров Петр Петрович,post=экономист,salary=35000
 fio=Андреев Андрей Андреевич,post=юрист,salary=40000
 fio=Алексеев Алексей Алексеевич,post=экономист,salary=45000
 fio=Николаев Николай Николаевич,post=главный бухгалтер,salary=45000
-fio=Ivanov Ivan Ivanovich,post=делопроизводитель,salary=20000
+fio=Иванов Иван Иванович,post=делопроизводитель,salary=20000
