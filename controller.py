@@ -36,9 +36,9 @@ def number_show_menu():
         result=model.update_worker()
         view.view_data(result)
     # elif value_1==7:
-
-    # elif value_1==8:
-
+    #     model.exsport_json
+    elif value_1==8:
+        model.exsport_csv
     # elif value_1==9:
 
     
