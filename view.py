@@ -29,4 +29,7 @@ def number_find_salary():
 def number_delete_worker():
     return input("Введите ФИО сотрудника для удаления: ")
 
+def number_update_worker():
+    return input("Введите ФИО сотрудника для обновления: ")
+
 
