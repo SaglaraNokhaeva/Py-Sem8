@@ -84,6 +84,22 @@ def update_worker():
     for s in data.readlines():
         worker=dict(s.split("=") for s in s.split(","))
         DB.append(worker)
-    return(list(filter(lambda item: item['ФИО'] == find_key, DB)))
+    new_DB=list(filter(lambda item: item['ФИО'] != find_key,DB))
+    data = open('Database.txt','w',encoding='UTF-8')
+    for item in new_DB:
+        data.write('ФИО='+item['ФИО'])
+        data.write(',должность='+item['должность'])
+        data.write(',зарплата='+item['зарплата'])
+    new_worker =dict(ФИО=input("Введите ФИО: "), должность=input("Введите должность: "),зарплата=input("Введите зарплату в рублях: "))
+    new_DB.append(new_worker)
+    data = open('Database.txt','a',encoding='UTF-8')
+    data.write("\n")
+    data.write('ФИО='+new_worker['ФИО'])
+    data.write(',должность='+new_worker['должность'])
+    data.write(',зарплата='+new_worker['зарплата'])
+    data.write("\n")
+    return new_DB
+data.close()
+    
 
      
