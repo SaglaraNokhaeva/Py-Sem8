@@ -22,7 +22,9 @@ def number_show_menu():
         print(value_3)
         result=model.find_worker_salary()
         view.view_data(result)
-    # elif value_1==4:
+    elif value_1==4:
+        result=model.add_worker()
+        view.view_data(result)
 
     # elif value_1==5:
 
