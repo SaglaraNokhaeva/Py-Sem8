@@ -93,7 +93,6 @@ def update_worker():
     new_worker =dict(fio=input("Введите ФИО: "), post=input("Введите должность: "),salary=input("Введите зарплату в рублях: "))
     new_DB.append(new_worker)
     data = open('Database.txt','a',encoding='UTF-8')
-    data.write("\n")
     data.write('fio='+new_worker['fio'])
     data.write(',post='+new_worker['post'])
     data.write(',salary='+new_worker['salary'])
@@ -115,6 +114,19 @@ def exsport_csv():
         j.writeheader()
         j.writerows(DB)
 data.close
-# data1.close()
+
+def exsport_json():
+    import json    
+    employee_info = ['fio', 'post', 'salary']
+    data = open('Database.txt','r',encoding='UTF-8')
+    DB =[]
+    for s in data.readlines():
+        worker=dict(s.split("=") for s in s.split(","))
+        DB.append(worker)
+    final = json.dumps(DB, indent=2)
+    data1 = open('people.json','a',encoding='UTF-8')
+    data1.write(final) 
+data.close  
+
 
      
