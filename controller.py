@@ -30,8 +30,11 @@ def number_show_menu():
         model.init(value_2)
         result=model.delete_worker()
         view.view_data(result)
-    # elif value_1==6:
-
+    elif value_1==6:
+        value_2=view.number_update_worker()
+        model.init(value_2)
+        result=model.update_worker()
+        view.view_data(result)
     # elif value_1==7:
 
     # elif value_1==8:
