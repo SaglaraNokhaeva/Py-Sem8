@@ -100,16 +100,21 @@ def update_worker():
     data.write("\n")
     return new_DB
 data.close()
-    
+
+
 def exsport_csv():
+    import csv
+    employee_info = ['ФИО', 'должность', 'зарплата']
     data = open('Database.txt','r',encoding='UTF-8')
     DB =[]
     for s in data.readlines():
         worker=dict(s.split("=") for s in s.split(","))
         DB.append(worker)
-    data1 = open('guide1.csv','a',encoding='UTF-8')
-    data1.write("\n".join(DB))   
-    data.close
-    data1.close()
+    with open('people.csv', 'w', encoding='utf8', newline='') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames = employee_info)
+        writer.writeheader()
+        writer.writerows(DB)
+data.close
+# data1.close()
 
      
