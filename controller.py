@@ -18,7 +18,9 @@ def number_show_menu():
         value_2=values[0]
         value_3=values[1]
         model.init1(value_2,value_3)
-        result=model.find_worker_post()
+        print(value_2)
+        print(value_3)
+        result=model.find_worker_salary()
         view.view_data(result)
     # elif value_1==4:
 
