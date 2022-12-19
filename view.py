@@ -26,6 +26,7 @@ def number_find_post():
 def number_find_salary():
     return [input("Введите нижний предел зарплаты: "), input("Введите верхний предел зарплаты: ")]
 
-
+def number_delete_worker():
+    return input("Введите ФИО сотрудника для удаления: ")
 
 
