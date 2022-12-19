@@ -1,9 +1,9 @@
-# data = open('Database.txt','r',encoding='UTF-8')
-# DB =[]
-# for s in data.readlines():
-#     worker=dict(s.split("=") for s in s.split(","))
-#     DB.append(worker) 
-# data.close()
+data = open('Database.txt','r',encoding='UTF-8')
+DB =[]
+for s in data.readlines():
+    worker=dict(s.split("=") for s in s.split(","))
+    DB.append(worker) 
+data.close()
 # print(DB)
 
 find_key='Иванов Иван Иванович'
@@ -45,6 +45,7 @@ def find_worker_salary():
 
 def add_worker():
     data = open('Database.txt','r',encoding='UTF-8')
+    find_key='Иванов Иван Иванович'
     DB =[]
     for s in data.readlines():
         worker=dict(s.split("=") for s in s.split(","))
@@ -61,13 +62,19 @@ def add_worker():
     return new_worker
 
 
-# def delete_worker():
-#     data = open('Database.txt','r',encoding='UTF-8')
-#     DB =[]
-#     for s in data.readlines():
-#         worker=dict(s.split("=") for s in s.split(","))
-#         DB.append(worker)
-#     data.close
-#     print(DB)
-#     return(list(filter(lambda item: item['ФИО'] == find_key, DB)))
-# delete_worker()
+def delete_worker():
+    data = open('Database.txt','r',encoding='UTF-8')
+    DB =[]
+    for s in data.readlines():
+        worker=dict(s.split("=") for s in s.split(","))
+        DB.append(worker)
+    data.close
+    new_DB=list(filter(lambda item: item['ФИО'] != find_key,DB))
+    data = open('Database.txt','w',encoding='UTF-8')
+    for item in new_DB:
+        data.write('ФИО='+item['ФИО'])
+        data.write(',должность='+item['должность'])
+        data.write(',зарплата='+item['зарплата'])
+    return new_DB
+data.close()
+     
