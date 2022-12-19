@@ -40,4 +40,4 @@ def find_worker_salary():
     for s in data.readlines():
         worker=dict(s.split("=") for s in s.split(","))
         DB.append(worker)
-    return(list(filter(lambda item: min_salary<=item['зарплата']<=max_salary, DB)))
+    return(list(filter(lambda item: (int(min_salary)<=int(item['зарплата'])) and (int(item['зарплата'])<=int(max_salary)), DB)))
