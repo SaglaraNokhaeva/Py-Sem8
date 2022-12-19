@@ -1,24 +1,38 @@
+find_key='Иванов Иван Иванович'
+data = open('Database.txt','r',encoding='UTF-8')
+DB =[]
+for s in data.readlines():
+    worker=dict(s.split("=") for s in s.split(","))
+    DB.append(worker)
+data.close
+new_DB=list(filter(lambda item: item['ФИО'] != find_key,DB))
+data = open('Database.txt','w',encoding='UTF-8')
+for item in new_DB:
+    data.write('ФИО='+item['ФИО'])
+    data.write(',должность='+item['должность'])
+    data.write(',зарплата='+item['зарплата'])
+    
 
 
-def show_menu() -> int:
-    print("\n" + "=" * 20)
-    print("Выберите необходимое действие")
-    print("1. Найти сотрудника")
-    print("2. Сделать выборку сотрудников по должности")
-    print("3. Сделать выборку сотрудников по зарплате")
-    print("4. Добавить сотрудника")
-    print("5. Удалить сотрудника")
-    print("6. Обновить данные сотрудника")
-    print("7. Экспортировать данные в формате json")
-    print("8. Экспортировать данные в формате csv")
-    print("9. Закончить работу")
-    return int(input("Введите номер необходимого действия: "))
+# def show_menu() -> int:
+#     print("\n" + "=" * 20)
+#     print("Выберите необходимое действие")
+#     print("1. Найти сотрудника")
+#     print("2. Сделать выборку сотрудников по должности")
+#     print("3. Сделать выборку сотрудников по зарплате")
+#     print("4. Добавить сотрудника")
+#     print("5. Удалить сотрудника")
+#     print("6. Обновить данные сотрудника")
+#     print("7. Экспортировать данные в формате json")
+#     print("8. Экспортировать данные в формате csv")
+#     print("9. Закончить работу")
+#     return int(input("Введите номер необходимого действия: "))
 
-show_menu()
+# show_menu()
 
 
-import csv
-import json
+# import csv
+# import json
 
 # def read_csv() -> list:
 #     employee = []
