@@ -6,7 +6,7 @@ for s in data.readlines():
 data.close()
 # print(DB)
 
-find_key='Иванов Иван Иванович'
+find_key='Ivanov Ivan Ivanovich'
 
 def init (f_k):
     global find_key
@@ -24,7 +24,7 @@ def find_worker():
     for s in data.readlines():
         worker=dict(s.split("=") for s in s.split(","))
         DB.append(worker)
-    return(list(filter(lambda item: item['ФИО'] == find_key, DB)))
+    return(list(filter(lambda item: item['fio'] == find_key, DB)))
 
 def find_worker_post():
     data = open('Database.txt','r',encoding='UTF-8')
@@ -32,7 +32,7 @@ def find_worker_post():
     for s in data.readlines():
         worker=dict(s.split("=") for s in s.split(","))
         DB.append(worker)
-    return(list(filter(lambda item: item['должность'] == find_key, DB)))
+    return(list(filter(lambda item: item['post'] == find_key, DB)))
 
 def find_worker_salary():
     data = open('Database.txt','r',encoding='UTF-8')
@@ -40,23 +40,23 @@ def find_worker_salary():
     for s in data.readlines():
         worker=dict(s.split("=") for s in s.split(","))
         DB.append(worker)
-    return(list(filter(lambda item: (int(min_salary)<=int(item['зарплата'])) and (int(item['зарплата'])<=int(max_salary)), DB)))
+    return(list(filter(lambda item: (int(min_salary)<=int(item['salary'])) and (int(item['salary'])<=int(max_salary)), DB)))
 
 
 def add_worker():
     data = open('Database.txt','r',encoding='UTF-8')
-    find_key='Иванов Иван Иванович'
+    # find_key='Ivanov Ivan Ivanovich'
     DB =[]
     for s in data.readlines():
         worker=dict(s.split("=") for s in s.split(","))
         DB.append(worker)
     data.close
-    new_worker =dict(ФИО=input("Введите ФИО: "), должность=input("Введите должность: "),зарплата=input("Введите зарплату в рублях: "))
+    new_worker =dict(fio=input("Введите ФИО: "), post=input("Введите должность: "),salary=input("Введите зарплату в рублях: "))
     data = open('Database.txt','a',encoding='UTF-8')
     data.write("\n")
-    data.write('ФИО='+new_worker['ФИО'])
-    data.write(',должность='+new_worker['должность'])
-    data.write(',зарплата='+new_worker['зарплата'])
+    data.write('fio='+new_worker['fio'])
+    data.write(',post='+new_worker['post'])
+    data.write(',salary='+new_worker['salary'])
     data.write("\n")
     data.close()
     return new_worker
@@ -69,12 +69,12 @@ def delete_worker():
         worker=dict(s.split("=") for s in s.split(","))
         DB.append(worker)
     data.close
-    new_DB=list(filter(lambda item: item['ФИО'] != find_key,DB))
+    new_DB=list(filter(lambda item: item['fio'] != find_key,DB))
     data = open('Database.txt','w',encoding='UTF-8')
     for item in new_DB:
-        data.write('ФИО='+item['ФИО'])
-        data.write(',должность='+item['должность'])
-        data.write(',зарплата='+item['зарплата'])
+        data.write('fio='+item['fio'])
+        data.write(',post='+item['post'])
+        data.write(',salary='+item['salary'])
     return new_DB
 data.close()
 
@@ -84,19 +84,19 @@ def update_worker():
     for s in data.readlines():
         worker=dict(s.split("=") for s in s.split(","))
         DB.append(worker)
-    new_DB=list(filter(lambda item: item['ФИО'] != find_key,DB))
+    new_DB=list(filter(lambda item: item['fio'] != find_key,DB))
     data = open('Database.txt','w',encoding='UTF-8')
     for item in new_DB:
-        data.write('ФИО='+item['ФИО'])
-        data.write(',должность='+item['должность'])
-        data.write(',зарплата='+item['зарплата'])
-    new_worker =dict(ФИО=input("Введите ФИО: "), должность=input("Введите должность: "),зарплата=input("Введите зарплату в рублях: "))
+        data.write('fio='+item['fio'])
+        data.write(',post='+item['post'])
+        data.write(',salary='+item['salary'])
+    new_worker =dict(fio=input("Введите ФИО: "), post=input("Введите должность: "),salary=input("Введите зарплату в рублях: "))
     new_DB.append(new_worker)
     data = open('Database.txt','a',encoding='UTF-8')
     data.write("\n")
-    data.write('ФИО='+new_worker['ФИО'])
-    data.write(',должность='+new_worker['должность'])
-    data.write(',зарплата='+new_worker['зарплата'])
+    data.write('fio='+new_worker['fio'])
+    data.write(',post='+new_worker['post'])
+    data.write(',salary='+new_worker['salary'])
     data.write("\n")
     return new_DB
 data.close()
@@ -104,7 +104,7 @@ data.close()
 
 def exsport_csv():
     import csv
-    employee_info = ['ФИО', 'должность', 'зарплата']
+    employee_info = ['fio', 'post', 'salary']
     data = open('Database.txt','r',encoding='UTF-8')
     DB =[]
     for s in data.readlines():
