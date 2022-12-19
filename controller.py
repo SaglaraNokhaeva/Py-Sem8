@@ -38,7 +38,7 @@ def number_show_menu():
     # elif value_1==7:
     #     model.exsport_json
     elif value_1==8:
-        model.exsport_csv
+        model.exsport_csv()
     # elif value_1==9:
 
     
