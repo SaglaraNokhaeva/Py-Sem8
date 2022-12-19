@@ -26,6 +26,8 @@ def number_show_menu():
         result=model.add_worker()
         view.view_data(result)
     elif value_1==5:
+        value_2=view.number_delete_worker()
+        model.init(value_2)
         result=model.delete_worker()
         view.view_data(result)
     # elif value_1==6:
