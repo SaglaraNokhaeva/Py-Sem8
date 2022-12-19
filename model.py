@@ -42,7 +42,6 @@ def find_worker_salary():
         DB.append(worker)
     return(list(filter(lambda item: (int(min_salary)<=int(item['salary'])) and (int(item['salary'])<=int(max_salary)), DB)))
 
-
 def add_worker():
     data = open('Database.txt','r',encoding='UTF-8')
     # find_key='Ivanov Ivan Ivanovich'
@@ -60,7 +59,6 @@ def add_worker():
     data.write("\n")
     data.close()
     return new_worker
-
 
 def delete_worker():
     data = open('Database.txt','r',encoding='UTF-8')
@@ -99,7 +97,6 @@ def update_worker():
     data.write("\n")
     return new_DB
 data.close()
-
 
 def exsport_csv():
     import csv    
