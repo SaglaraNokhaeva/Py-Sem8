@@ -35,10 +35,12 @@ def number_show_menu():
         model.init(value_2)
         result=model.update_worker()
         view.view_data(result)
-    # elif value_1==7:
-    #     model.exsport_json
+    elif value_1==7:
+        model.exsport_json()
     elif value_1==8:
         model.exsport_csv()
     # elif value_1==9:
+        
+
 
     
